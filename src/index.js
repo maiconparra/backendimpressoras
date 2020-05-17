@@ -1,16 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 
 mongoose.set('useCreateIndex', true);
 
-mongoose.connect('mongodb+srv://maiconparra:Ramon@159346@cluster0-4avqv.mongodb.net/acessa-city-vNode?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://maiconparra:test@cluster0-4avqv.mongodb.net/desafioVenturus?retryWrites=true&w=majority', {
    useNewUrlParser: true,
    useUnifiedTopology: true,
 });
 
+
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
